@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production"
+    "build": "webpack --config ./webpack.config.js -w --mode production"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,11 @@
     "react-dom": "^16.8.1",
     "webpack": "^4.29.2",
     "webpack-cli": "^3.2.3"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
   }
 }

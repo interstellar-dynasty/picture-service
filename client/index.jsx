@@ -1,7 +1,7 @@
 import react from 'react';
 import reactDOM from 'react-dom';
 
-class App extends extends ReactComponent {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
