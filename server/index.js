@@ -11,7 +11,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', express.static('public'));
 
-app.get('/test', (req, res) => {
+app.get('/random', (req, res) => {
+  db.pictures.aggregate([{ $sample: { size: 1 } }])
   console.log('inside the get request');
 });
 
