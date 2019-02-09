@@ -20,7 +20,6 @@ app.get('/random', (req, res) => {
   // console.log('inside the get request');
 });
 
-
 app.listen(port, () => {
   console.log('Now listening on port ', port);
 })
