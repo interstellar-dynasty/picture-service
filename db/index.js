@@ -50,6 +50,5 @@ function seedDatabase(url, title) {
 }
 
 
-
 module.exports.seedDatabase = seedDatabase;
 module.exports.db = db;

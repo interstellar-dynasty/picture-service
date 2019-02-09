@@ -1,6 +1,6 @@
 // Load the SDK and UUID
 var AWS = require('aws-sdk');
-var uuid = require('uuid');
+// var uuid = require('uuid');
 let db = require('./db/index');
 
 let myBucket = new AWS.S3();
