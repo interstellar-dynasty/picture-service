@@ -15,6 +15,26 @@ let db = mongoose.connect("mongodb://localhost:27017/picturesDB", { useNewUrlPar
     console.log('connected to the mongo picturesDB database');
   }
 });
+function randomGenerator(callback) {
+  Picture.count().exec(function (err, count) {
+    if (err) {
+      console.log(err, ' err in randomGenerator part1');
+      return err;
+    }
+    var random = Math.floor(Math.random() * count);
+
+    Picture.findOne().skip(random).exec(
+      function (err, result) {
+        if (err) {
+          console.log(err, ' err in randomGenerator part2');
+        } else {
+          callback(result);
+        }
+        // result is random 
+      });
+  });
+}
+
 function seedDatabase(url, title) {
   let currSchema = new Picture({
     url: url,
@@ -28,7 +48,7 @@ function seedDatabase(url, title) {
     }
   })
 }
-
+module.exports.randomGenerator = randomGenerator;
 module.exports.seedDatabase = seedDatabase;
 module.exports.db = db;
 
