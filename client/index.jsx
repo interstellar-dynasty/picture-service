@@ -5,11 +5,17 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      imgStyle: {
+        flex: 1,
+        height: '100%',
+        width: '100%',
+        resizeMode: 'contain'
+      },
     }
   }
   render() {
-    return (<h1>Hello React World -- Test push!</h1>);
+    // return (<img style={this.state.imgStyle} src="https://s3.amazonaws.com/picture-service-fec-bucket/A+Tiny+Planet+Artist+Concept.jpg" />);
+    return (<img style={this.state.imgStyle} src="https://s3.amazonaws.com/picture-service-fec-bucket/+Cone+Nebula+(in+NGC+2264).jpg" />);
   }
 }
 
