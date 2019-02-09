@@ -13,11 +13,11 @@ app.use('/', express.static('public'));
 app.get('/random', (req, res) => {
   db.randomGenerator(result => {
     console.log(result.url);
-  })
+  });
   res.send('YOU MADE IT');
-  console.log(db);
+  // console.log(db);
   // res.send(db.pictures.aggregate([{ $sample: { size: 1 } }]));
-  console.log('inside the get request');
+  // console.log('inside the get request');
 });
 
 
