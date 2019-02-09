@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 602380c35428e2c718fa389007b0e154f1fe2274
 let pictureSchema = new Schema({
   url: { type: String, unique: true },
   title: String
@@ -56,11 +52,6 @@ module.exports.randomGenerator = randomGenerator;
 module.exports.seedDatabase = seedDatabase;
 module.exports.db = db;
 
-<<<<<<< HEAD
-=======
-module.exports.seedDatabase = seedDatabase;
-module.exports.db = db;
->>>>>>> 602380c35428e2c718fa389007b0e154f1fe2274
 /*
 Stack overflow example to access the bucket
 https://stackoverflow.com/questions/30726079/aws-s3-object-listing
