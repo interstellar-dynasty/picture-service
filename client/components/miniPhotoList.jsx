@@ -2,7 +2,11 @@ import React from 'react';
 import MiniPhotoItem from './miniPhotoItem.jsx'
 
 const styleObj = {
-  listStyle: 'none'
+  listStyle: 'none',
+  display: 'inline-block',
+  marginBlockStart: '0px',
+  paddingInlineStart: '0px',
+  paddingRight: '6px'
 }
 
 const MiniPhotoList = (props) => {

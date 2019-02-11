@@ -3,7 +3,7 @@ import React from 'react';
 const styleObj = {
   flex: 1,
   height: '100%',
-  width: '100%',
+  width: '80%',
   resizeMode: 'contain'
 }
 
