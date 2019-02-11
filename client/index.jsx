@@ -15,7 +15,12 @@ class App extends React.Component {
         `https://s3.amazonaws.com/picture-service-fec-bucket/Possible+Disintegrating+Planet+Artist+Concept.jpg`,
         `https://s3.amazonaws.com/picture-service-fec-bucket/dust+lanes+in+NGC+7049.jpg`]
     }
+    this.changeState = this.changeState.bind(this);
   }
+  changeState(inputObj) {
+    this.setState(inputObj);
+  }
+
   render() {
     // return (<img style={this.state.imgStyle} src="https://s3.amazonaws.com/picture-service-fec-bucket/A+Tiny+Planet+Artist+Concept.jpg" />);
     return (<div>
