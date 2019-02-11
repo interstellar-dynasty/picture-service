@@ -10,11 +10,11 @@ const styleObj = {
 }
 
 const MiniPhotoList = (props) => {
-  console.log('inside miniPhotoList')
+  // console.log('inside miniPhotoList');
   return <ul style={styleObj}>
     {
       props.miniPhotos.map(item => {
-        return <MiniPhotoItem item={item} />
+        return <MiniPhotoItem photo={item} changeMainPhoto={props.changeMainPhoto} />
       })
     }
   </ul>

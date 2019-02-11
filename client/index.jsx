@@ -10,22 +10,29 @@ class App extends React.Component {
     this.state = {
       currentPhoto: { url: `https://s3.amazonaws.com/picture-service-fec-bucket/A+Tiny+Planet+Artist+Concept.jpg`, id: 0 },
       miniPhotos: [
+        { url: `https://s3.amazonaws.com/picture-service-fec-bucket/A+Tiny+Planet+Artist+Concept.jpg`, id: 0 },
         { url: `https://s3.amazonaws.com/picture-service-fec-bucket/Ancient+Planet+in+a+Globular+Cluster+Core.jpg`, id: 1 },
         { url: `https://s3.amazonaws.com/picture-service-fec-bucket/Galactic+wreckage+in+Stephan's+Quintet.jpg`, id: 2 },
         { url: `https://s3.amazonaws.com/picture-service-fec-bucket/Possible+Disintegrating+Planet+Artist+Concept.jpg`, id: 3 },
-        { url: `https://s3.amazonaws.com/picture-service-fec-bucket/dust+lanes+in+NGC+7049.jpg`, id: 4 },
+        { url: `https://s3.amazonaws.com/picture-service-fec-bucket/dust+lanes+in+NGC+7049.jpg`, id: 4 }
       ]
     }
-    this.changeState = this.changeState.bind(this);
+    this.changeMainPhoto = this.changeMainPhoto.bind(this);
   }
-  changeState(inputObj) {
-    this.setState(inputObj);
+
+  changeMainPhoto(event) {
+    console.log(event.currentTarget.src);
+    let item = event.currentTarget;
+    let newMainPhoto = { id: item.id, url: item.src };
+    this.setState({
+      currentPhoto: newMainPhoto,
+    });
   }
 
   render() {
     // return (<img style={this.state.imgStyle} src="https://s3.amazonaws.com/picture-service-fec-bucket/A+Tiny+Planet+Artist+Concept.jpg" />);
     return (<div>
-      <MiniPhotoList miniPhotos={this.state.miniPhotos} changeState={this.changeState} />
+      <MiniPhotoList miniPhotos={this.state.miniPhotos} changeMainPhoto={this.changeMainPhoto} />
       <MainPhoto currentPhoto={this.state.currentPhoto} />
     </div>);
   }

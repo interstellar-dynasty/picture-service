@@ -8,9 +8,9 @@ const styleObj = {
 }
 
 const MiniPhotoItem = (props) => {
-  console.log('inside miniPhotoItem ', props.item)
+  // console.log('inside miniPhotoItem ', props.photo);
   return <li>
-    <img style={styleObj} src={props.item.url} />
+    <img id={props.photo.id} onClick={props.changeMainPhoto} style={styleObj} src={props.photo.url} />
   </li>
 }
 
