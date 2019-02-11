@@ -10,7 +10,7 @@ const styleObj = {
 const MiniPhotoItem = (props) => {
   console.log('inside miniPhotoItem ', props.item)
   return <li>
-    <img style={styleObj} src={props.item} />
+    <img style={styleObj} src={props.item.url} />
   </li>
 }
 

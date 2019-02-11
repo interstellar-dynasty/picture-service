@@ -8,12 +8,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPhoto: `https://s3.amazonaws.com/picture-service-fec-bucket/A+Tiny+Planet+Artist+Concept.jpg`,
+      currentPhoto: { url: `https://s3.amazonaws.com/picture-service-fec-bucket/A+Tiny+Planet+Artist+Concept.jpg`, id: 0 },
       miniPhotos: [
-        `https://s3.amazonaws.com/picture-service-fec-bucket/Ancient+Planet+in+a+Globular+Cluster+Core.jpg`,
-        `https://s3.amazonaws.com/picture-service-fec-bucket/Galactic+wreckage+in+Stephan's+Quintet.jpg`,
-        `https://s3.amazonaws.com/picture-service-fec-bucket/Possible+Disintegrating+Planet+Artist+Concept.jpg`,
-        `https://s3.amazonaws.com/picture-service-fec-bucket/dust+lanes+in+NGC+7049.jpg`]
+        { url: `https://s3.amazonaws.com/picture-service-fec-bucket/Ancient+Planet+in+a+Globular+Cluster+Core.jpg`, id: 1 },
+        { url: `https://s3.amazonaws.com/picture-service-fec-bucket/Galactic+wreckage+in+Stephan's+Quintet.jpg`, id: 2 },
+        { url: `https://s3.amazonaws.com/picture-service-fec-bucket/Possible+Disintegrating+Planet+Artist+Concept.jpg`, id: 3 },
+        { url: `https://s3.amazonaws.com/picture-service-fec-bucket/dust+lanes+in+NGC+7049.jpg`, id: 4 },
+      ]
     }
     this.changeState = this.changeState.bind(this);
   }
@@ -24,7 +25,7 @@ class App extends React.Component {
   render() {
     // return (<img style={this.state.imgStyle} src="https://s3.amazonaws.com/picture-service-fec-bucket/A+Tiny+Planet+Artist+Concept.jpg" />);
     return (<div>
-      <MiniPhotoList miniPhotos={this.state.miniPhotos} />
+      <MiniPhotoList miniPhotos={this.state.miniPhotos} changeState={this.changeState} />
       <MainPhoto currentPhoto={this.state.currentPhoto} />
     </div>);
   }

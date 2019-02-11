@@ -8,7 +8,7 @@ const styleObj = {
 }
 
 const MainPhoto = (props) => {
-  return <img style={styleObj} src={props.currentPhoto} />
+  return <img style={styleObj} src={props.currentPhoto.url} />
 }
 
 export default MainPhoto;
