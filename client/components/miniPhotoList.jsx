@@ -6,7 +6,8 @@ const styleObj = {
   display: 'inline-block',
   marginBlockStart: '0px',
   paddingInlineStart: '0px',
-  paddingRight: '6px'
+  paddingRight: '6px',
+  position: 'absolute'
 }
 
 const MiniPhotoList = (props) => {

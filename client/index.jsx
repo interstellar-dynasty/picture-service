@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   changeMainPhoto(event) {
-    console.log(event.currentTarget.src);
+    // console.log(event.currentTarget.src);
     let item = event.currentTarget;
     let newMainPhoto = { id: item.id, url: item.src };
     this.setState({
