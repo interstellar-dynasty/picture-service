@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import MainPhoto from './components/mainPhoto';
 import MiniPhotoList from './components/miniPhotoList';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -32,7 +31,9 @@ class App extends React.Component {
   render() {
     // return (<img style={this.state.imgStyle} src="https://s3.amazonaws.com/picture-service-fec-bucket/A+Tiny+Planet+Artist+Concept.jpg" />);
     return (<div>
-      <MiniPhotoList miniPhotos={this.state.miniPhotos} changeMainPhoto={this.changeMainPhoto} />
+      <MiniPhotoList
+        miniPhotos={this.state.miniPhotos}
+        changeMainPhoto={this.changeMainPhoto} />
       <MainPhoto currentPhoto={this.state.currentPhoto} />
     </div>);
   }
