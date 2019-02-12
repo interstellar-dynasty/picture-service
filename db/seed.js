@@ -10,11 +10,12 @@ myBucket.listObjects({ Bucket: 'picture-service-fec-bucket' }, (err, data) => {
     console.log(err, 'you have an error in .listObjects');
   } else {
     // console.log(Array.isArray(data.Contents));
-    data.Contents.forEach(item => {
-      let currKey = item.Key;
-      let strTemplate = `https://${bucketName}.s3.amazonaws.com/${currKey}`;
+    data.Contents.forEach((item, index) => {
+      let title = item.Key;
+      let strTemplate = `https://${bucketName}.s3.amazonaws.com/${title}`;
+      let id = index
       console.log(item);
-      db.seedDatabase(strTemplate, currKey);
+      db.seedDatabase(strTemplate, title, id);
       //add the currentTemplate to the database as the URL
     });
   }

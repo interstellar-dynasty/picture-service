@@ -3,7 +3,8 @@ let Schema = mongoose.Schema;
 
 let pictureSchema = new Schema({
   url: { type: String, unique: true },
-  title: String
+  title: String,
+  key: Number
 });
 
 let Picture = mongoose.model('Picture', pictureSchema);
@@ -35,10 +36,11 @@ function randomGenerator(callback) {
   });
 }
 
-function seedDatabase(url, title) {
+function seedDatabase(url, title, id) {
   let currSchema = new Picture({
     url: url,
-    title: title
+    title: title,
+    key: id
   });
   currSchema.save((err) => {
     if (err) {
