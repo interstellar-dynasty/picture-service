@@ -38,7 +38,7 @@ class MiniPhotoList extends React.Component {
   }
   // console.log('inside miniPhotoList');
   updateSelectOnHover(event) {
-    let currId = event.target.id;
+    let currId = +event.target.id;
     // console.log(event.target.id);
     this.setState({
       selectedId: currId
@@ -50,9 +50,7 @@ class MiniPhotoList extends React.Component {
       <ul style={styleObj}>
         {
           this.props.miniPhotos.map(item => {
-            // console.log('item.id ', item.id, '---> this.state.selectedId ', this.state.selectedId);
-            if (item.id == this.state.selectedId) {
-              console.log(item.id);
+            if (item.id === this.state.selectedId) {
               return <MiniPhotoItem
                 itemStyle={selectedStyle}
                 photo={item}
