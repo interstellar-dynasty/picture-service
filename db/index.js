@@ -16,6 +16,24 @@ let db = mongoose.connect("mongodb://localhost:27017/picturesDB", { useNewUrlPar
     console.log('connected to the mongo picturesDB database');
   }
 });
+
+function findByGivenKey(key, callback) {
+  let currKey = key;
+  console.log('currKey', currKey);
+
+  Picture.findOne(
+    { key: currKey }
+  )
+    .then(data => {
+      console.log(data, ' data from findByGivenKey');
+      callback(data);
+    })
+    .catch(err => {
+      console.log(err, ' error in findByGivenKey');
+      callback(err);
+    });
+}
+
 function randomGenerator(callback) {
   Picture.count().exec(function (err, count) {
     if (err) {
@@ -50,6 +68,7 @@ function seedDatabase(url, title, id) {
     }
   })
 }
+module.exports.findByGivenKey = findByGivenKey;
 module.exports.randomGenerator = randomGenerator;
 module.exports.seedDatabase = seedDatabase;
 module.exports.db = db;
