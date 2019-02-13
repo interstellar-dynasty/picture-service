@@ -22,8 +22,10 @@ app.get('/id', (req, res) => {
 app.get('/random', (req, res) => {
   db.randomGenerator(result => {
     console.log(result.url);
+    res.send(result);
   });
-  res.send('YOU MADE IT');
+  // console.log('req ', req, ' there was an error in get /random');
+  // res.send('there was an error in get /random');
   // console.log(db);
   // res.send(db.pictures.aggregate([{ $sample: { size: 1 } }]));
   // console.log('inside the get request');

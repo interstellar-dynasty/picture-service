@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import MainPhoto from './components/mainPhoto';
 import MiniPhotoList from './components/miniPhotoList';
+import Axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
@@ -17,6 +18,22 @@ class App extends React.Component {
       ]
     }
     this.changeMainPhoto = this.changeMainPhoto.bind(this);
+  }
+  componentWillMount() {
+    console.log(this.props);
+    Axios.get('/random').then(data => {
+      console.log('data, component will mount ', data.data);
+      let currUrl = data.data.url;
+      let currId = data.data.key;
+      let currPhoto = { url: currUrl, id: currId }
+      let updatedMiniPhotos = [...this.state.miniPhotos];
+      updatedMiniPhotos.shift();
+      updatedMiniPhotos.unshift(currPhoto);
+      this.setState({
+        currentPhoto: currPhoto,
+        miniPhotos: updatedMiniPhotos
+      });
+    })
   }
 
   changeMainPhoto(event) {

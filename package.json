@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Tophatman100/picture-service#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "express": "^4.16.4",
     "mongoose": "^5.4.10",
     "react": "^16.8.1",
