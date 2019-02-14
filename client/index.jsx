@@ -8,6 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      exampleKey: 3,
       currentPhoto: {
         // url: `https://s3.amazonaws.com/picture-service-fec-bucket/A+Tiny+Planet+Artist+Concept.jpg`, id: 0 
       },
@@ -22,21 +23,29 @@ class App extends React.Component {
     console.log('props ', this.props);
     this.changeMainPhoto = this.changeMainPhoto.bind(this);
   }
-  dataToPhotoObj(data) {
-    let currUrl = data.data.url;
-    let currId = data.data.key;
+  dataToPhotoObj(data, index) {
+    let currUrl = data.url;
+    let currId = index;
     let currPhoto = { url: currUrl, id: currId }
     return currPhoto;
   }
 
   componentWillMount() {
     console.log(this.props);
-    if (this.props.key) {
+    if (this.state.exampleKey) {
       console.log('inside if props.key');
-      Axios.get(`/id?key=${this.props.key}`)
+      // Axios.get(`/id?key=${this.props.key}`)
+      Axios.get(`/id?key=${this.state.exampleKey}`)
         .then(data => {
-          let photo = this.dataToPhotoObj(data);
-          this.setState(photo);
+          console.log('data inside Axios get request in mount ', data);
+          let photos = data.data.map((photo, index) => {
+            return photo = this.dataToPhotoObj(photo, index);
+          })
+          console.log('photos ', photos);
+          this.setState({
+            currentPhoto: photos[0],
+            miniPhotos: photos
+          });
         }).catch(err => {
           console.log(err, ' <-- error in the componentWillMount get request');
         })
