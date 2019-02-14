@@ -34,8 +34,11 @@ class MiniPhotoList extends React.Component {
     this.state = {
       selectedId: this.props.miniPhotos[0].id
     }
+    console.log('this.props.miniphotos ', this.props.miniPhotos);
+
     this.updateSelectOnHover = this.updateSelectOnHover.bind(this);
   }
+
   // console.log('inside miniPhotoList');
   updateSelectOnHover(event) {
     let currId = +event.target.id;

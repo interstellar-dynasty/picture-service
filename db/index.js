@@ -19,9 +19,10 @@ let db = mongoose.connect("mongodb://localhost:27017/picturesDB", { useNewUrlPar
 
 function findByGivenKey(key, callback) {
   let currKey = key;
+  // let currTitle = 'folder' + key + '/';
   console.log('currKey', currKey);
 
-  Picture.findOne(
+  Picture.find(
     { key: currKey }
   )
     .then(data => {

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed-database": "node ./db/seed.js",
     "build": "webpack --config ./webpack.config.js -w --mode production"
   },
   "repository": {
