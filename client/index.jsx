@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      exampleKey: 3,
+      exampleKey: this.props.exampleKey,
       currentPhoto: {
         // url: `https://s3.amazonaws.com/picture-service-fec-bucket/A+Tiny+Planet+Artist+Concept.jpg`, id: 0 
       },
@@ -84,5 +84,5 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<App exampleKey={22} />, document.getElementById("app"));
 
