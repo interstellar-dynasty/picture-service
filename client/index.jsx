@@ -4,6 +4,7 @@ import MainPhoto from './components/mainPhoto';
 import MiniPhotoList from './components/miniPhotoList';
 import Axios from 'axios';
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);

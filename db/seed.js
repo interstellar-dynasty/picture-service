@@ -3,6 +3,8 @@ var AWS = require('aws-sdk');
 // var uuid = require('uuid');
 let db = require('./index');
 
+
+
 let myBucket = new AWS.S3();
 let bucketName = 'picture-service-fec-bucket';
 let exampleParams = {

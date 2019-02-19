@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 let Schema = mongoose.Schema;
+require('dotenv').config();
 
 let pictureSchema = new Schema({
   url: { type: String, unique: true },
@@ -9,7 +10,7 @@ let pictureSchema = new Schema({
 
 let Picture = mongoose.model('Picture', pictureSchema);
 
-let db = mongoose.connect("mongodb://localhost:27017/picturesDB", { useNewUrlParser: true }, (err) => {
+let db = mongoose.connect(`mongodb+srv://HandsomeDose:${process.env.DBPASSWORD}@fecamazonpicturedatabase-bcucz.mongodb.net/test?retryWrites=true`, { useNewUrlParser: true }, (err) => {
   if (err) {
     console.log(err, 'done fuckked up -- mongoose.connect');
   } else {
@@ -56,6 +57,7 @@ function randomGenerator(callback) {
 }
 
 function seedDatabase(url, title, id) {
+  console.log('inside seedDatabase')
   let currSchema = new Picture({
     url: url,
     title: title,
