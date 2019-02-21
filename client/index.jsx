@@ -11,14 +11,12 @@ class App extends React.Component {
     this.state = {
       exampleKey: this.props.exampleKey,
       currentPhoto: {
-        // url: `https://s3.amazonaws.com/picture-service-fec-bucket/A+Tiny+Planet+Artist+Concept.jpg`, id: 0 
+        url: `https://s3.amazonaws.com/picture-service-fec-bucket/folder60/space-1548139_1920.jpg`, id: 0
       },
       miniPhotos: [
-        { url: `https://s3.amazonaws.com/picture-service-fec-bucket/A+Tiny+Planet+Artist+Concept.jpg`, id: 0 },
-        { url: `https://s3.amazonaws.com/picture-service-fec-bucket/Ancient+Planet+in+a+Globular+Cluster+Core.jpg`, id: 1 },
-        { url: `https://s3.amazonaws.com/picture-service-fec-bucket/Galactic+wreckage+in+Stephan's+Quintet.jpg`, id: 2 },
-        { url: `https://s3.amazonaws.com/picture-service-fec-bucket/Possible+Disintegrating+Planet+Artist+Concept.jpg`, id: 3 },
-        { url: `https://s3.amazonaws.com/picture-service-fec-bucket/dust+lanes+in+NGC+7049.jpg`, id: 4 }
+        { url: `https://s3.amazonaws.com/picture-service-fec-bucket/folder60/space-1548139_1920.jpg`, id: 0 },
+        { url: `https://s3.amazonaws.com/picture-service-fec-bucket/folder60/space-ship-model-2923803_640.png`, id: 1 },
+        { url: `https://s3.amazonaws.com/picture-service-fec-bucket/folder60/Planet+Orbiting+Pair+of+Stars'.jpg`, id: 2 },
       ]
     }
     console.log('props ', this.props);
@@ -85,5 +83,5 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App exampleKey={22} />, document.getElementById("app"));
+ReactDOM.render(<App exampleKey={60} />, document.getElementById("app"));
 
