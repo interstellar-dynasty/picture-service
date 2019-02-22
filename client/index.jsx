@@ -83,5 +83,5 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App exampleKey={60} />, document.getElementById("app"));
+ReactDOM.render(<App exampleKey={60} />, document.getElementById("picture"));
 
