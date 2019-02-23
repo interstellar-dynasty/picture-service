@@ -2,9 +2,13 @@ import React from 'react';
 import MainPhoto from './components/mainPhoto';
 import MiniPhotoList from './components/miniPhotoList';
 import Axios from 'axios';
+
 const styleObj = {
-  height: '500px',
+  display: 'grid',
+  gridTemplateColumns: '8px 1fr',
+  gridTemplateRows: '400px'
 }
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -96,12 +100,15 @@ class App extends React.Component {
 
   render() {
     // return (<img style={this.state.imgStyle} src="https://s3.amazonaws.com/picture-service-fec-bucket/A+Tiny+Planet+Artist+Concept.jpg" />);
-    return (<div>
-      <MiniPhotoList
-        miniPhotos={this.state.miniPhotos}
-        changeMainPhoto={this.changeMainPhoto} />
-
-      <MainPhoto currentPhoto={this.state.currentPhoto} />
+    return (<div style={styleObj}>
+      <div>
+        <MiniPhotoList
+          miniPhotos={this.state.miniPhotos}
+          changeMainPhoto={this.changeMainPhoto} />
+      </div>
+      <div>
+        <MainPhoto currentPhoto={this.state.currentPhoto} />
+      </div>
     </div >);
   }
 }

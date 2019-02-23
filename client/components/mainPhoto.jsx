@@ -5,6 +5,7 @@ const styleObj = {
   // height: '100%',
   // width: 'calc(100% - 58px)',
   maxWidth: 'calc(100% - 58px)',
+  minHeight: '350px',
   maxHeight: '100%',
   paddingLeft: '58px',
   resizeMode: 'contain'
