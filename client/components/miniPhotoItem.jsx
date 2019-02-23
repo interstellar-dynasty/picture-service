@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 const MiniPhotoItem = (props) => {
   // console.log('inside miniPhotoItem ', props.photo);
   return (
