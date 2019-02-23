@@ -2,8 +2,9 @@ import React from 'react';
 import MainPhoto from './components/mainPhoto';
 import MiniPhotoList from './components/miniPhotoList';
 import Axios from 'axios';
-
-
+const styleObj = {
+  height: '500px',
+}
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -68,18 +69,16 @@ class App extends React.Component {
       let key = event.detail
       Axios.get(`id/${key}`)
         .then((results) => {
-          console.log(results.data, 'heyoooooo');
-          console.log('heyoooooo');
-          // let title = results.data.title;
-          // let text = results.data.text;
-          // let flavor = results.data.flavor;
-          // let multiverseId = results.data.multiverseId;
-          // this.setState({
-          //   title: title,
-          //   text: text,
-          //   flavor: flavor,
-          //   multiverseId: multiverseId
-          // });
+          // console.log(results.data, 'heyoooooo');
+          // console.log('heyoooooo');
+          let photos = results.data.map((photo, index) => {
+            return photo = this.dataToPhotoObj(photo, index);
+          })
+          console.log('photos ', photos);
+          this.setState({
+            currentPhoto: photos[0],
+            miniPhotos: photos
+          });
         })
         .then()
         .catch((err) => console.log('oh no there was an error in Axios request', err))
@@ -94,14 +93,16 @@ class App extends React.Component {
     });
   }
 
+
   render() {
     // return (<img style={this.state.imgStyle} src="https://s3.amazonaws.com/picture-service-fec-bucket/A+Tiny+Planet+Artist+Concept.jpg" />);
     return (<div>
       <MiniPhotoList
         miniPhotos={this.state.miniPhotos}
         changeMainPhoto={this.changeMainPhoto} />
+
       <MainPhoto currentPhoto={this.state.currentPhoto} />
-    </div>);
+    </div >);
   }
 }
 
