@@ -10,14 +10,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', express.static('public'));
 
-app.get('/id', (req, res) => {
-  let key = req.query.key;
+app.get('/id/:key', (req, res) => {
+  let key = req.params.key;
   console.log(`${key} is the key`);
   db.findByGivenKey(key, (result => {
     console.log('result', result)
     res.send(result);
-  }))
-})
+  }));
+});
 
 app.get('/random', (req, res) => {
   db.randomGenerator(result => {
