@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      exampleKey: this.props.exampleKey,
+      exampleKey: 22,
       currentPhoto: {
         url: `https://s3.amazonaws.com/picture-service-fec-bucket/folder60/space-1548139_1920.jpg`, id: 0
       },
@@ -29,11 +29,11 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    console.log(this.props);
+    // console.log(this.props);
     if (this.state.exampleKey) {
-      console.log('inside if props.key');
+      // console.log('inside if props.key');
       // Axios.get(`/id?key=${this.props.key}`)
-      Axios.get(`/id?key=${this.state.exampleKey}`)
+      Axios.get(`/id/${this.state.exampleKey}`)
         .then(data => {
           console.log('data inside Axios get request in mount ', data);
           let photos = data.data.map((photo, index) => {
@@ -61,6 +61,29 @@ class App extends React.Component {
         });
       })
     }
+  }
+
+  componentDidMount() {
+    window.addEventListener('newPage', (event) => {
+      let key = event.detail
+      Axios.get(`id/${key}`)
+        .then((results) => {
+          console.log(results.data, 'heyoooooo');
+          console.log('heyoooooo');
+          // let title = results.data.title;
+          // let text = results.data.text;
+          // let flavor = results.data.flavor;
+          // let multiverseId = results.data.multiverseId;
+          // this.setState({
+          //   title: title,
+          //   text: text,
+          //   flavor: flavor,
+          //   multiverseId: multiverseId
+          // });
+        })
+        .then()
+        .catch((err) => console.log('oh no there was an error in Axios request', err))
+    }, false);
   }
 
   changeMainPhoto(event) {
